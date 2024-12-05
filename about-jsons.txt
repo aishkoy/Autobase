@@ -1,0 +1,8 @@
+// "string"
+// 123
+// 1.23
+// true
+// false
+// {} - object with fields
+// [] - arrays, collrctions
+// there is no logic
