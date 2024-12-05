@@ -36,24 +36,4 @@ public class FileUtil {
         }
         return drivers;
     }
-
-    public static void writeFile(Truck[] trucks){
-        String newJson = GSON.toJson(trucks);
-        byte[] bytes = newJson.getBytes();
-        try{
-            Files.write(Path.of("data/trucks.json"), bytes);
-        } catch (IOException e) {
-            System.out.println("Something went wrong");
-        }
-    }
-
-    public static void writeFileDrivers(Driver[] drivers){
-        String newJson = GSON.toJson(drivers);
-        byte[] bytes = newJson.getBytes();
-        try{
-            Files.write(Path.of("data/drivers.json"), bytes);
-        } catch (IOException e) {
-            System.out.println("Something went wrong");
-        }
-    }
 }

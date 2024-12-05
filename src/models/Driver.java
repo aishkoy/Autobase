@@ -14,13 +14,20 @@ public class Driver {
         this.name = name;
     }
 
-    public void initializeState() {
-        this.state = new IsFree();
+    public String getName() {
+        return name;
     }
 
-    public Driver(Driver driver) {
-        this.id = driver.id;
-        this.name = driver.name;
+    public void setState(DriverState state) {
+        this.state = state;
+    }
+
+    public DriverState getState() {
+        return state;
+    }
+
+    public void initializeState() {
+        this.state = new IsFree();
     }
 
     public void setTruck(Truck truck) {
@@ -45,15 +52,5 @@ public class Driver {
         return Integer.parseInt(id.replace("drv-", ""));
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setState(DriverState state) {
-        this.state = state;
-    }
-
-    public DriverState getState() {
-        return state;
-    }
 }

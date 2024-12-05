@@ -39,29 +39,6 @@ public class Truck {
         }
     }
 
-
-    public void getInfoMessage() {
-        System.out.println("""
-                                INFO ABOUT TRUCKS
-                  #  ║ Bus             ║ Driver     ║ State
-                ═════╬═════════════════╬════════════╬════════════""");
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%3s  ║ %-15s ║ %-10s ║ %-10s ", id, name, driver, state);
-    }
-
-    public void printInfo() {
-        System.out.printf("""
-                ╔════════════════════════════╗
-                ║ #         : %-14s ║
-                ║ Bus       : %-14s ║
-                ║ Driver    : %-14s ║
-                ║ Bus State : On %-11s ║
-                ╚════════════════════════════╝""", id, name, driver, state);
-    }
-
     public String getName() {
         return name;
     }
@@ -85,6 +62,28 @@ public class Truck {
 
     public State getStateObj() {
         return this.stateObj;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%3s  ║ %-15s ║ %-10s ║ %-10s ", id, name, driver, state);
+    }
+
+    public void getInfoMessage() {
+        System.out.println("""
+                                INFO ABOUT TRUCKS
+                  #  ║ Bus             ║ Driver     ║ State
+                ═════╬═════════════════╬════════════╬════════════""");
+    }
+
+    public void printInfo() {
+        System.out.printf("""
+                ╔════════════════════════════╗
+                ║ #         : %-14s ║
+                ║ Bus       : %-14s ║
+                ║ Driver    : %-14s ║
+                ║ Bus State : On %-11s ║
+                ╚════════════════════════════╝""", id, name, driver, state);
     }
 
     public void startDriving() throws StateException, DriverException {
