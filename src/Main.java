@@ -17,11 +17,11 @@ public class Main {
         printInfo(drivers);
 
         int choice;
-        do{
-            int num = getNum(1,3, "\nEnter number of Truck: ");
-            trucks[num-1].printInfo();
+        do {
+            int num = getNum(1, 3, "\nEnter number of Truck: ");
+            trucks[num - 1].printInfo();
             choice = changeTruck(num);
-        } while(choice != 4);
+        } while (choice != 4);
 
         printInfo(trucks);
         printInfo(drivers);
@@ -35,29 +35,29 @@ public class Main {
                 2. Send to route
                 3. Send on repair
                 4. exit""");
-        int choice = getNum(1,4, "");
+        int choice = getNum(1, 4, "");
 
-        switch(choice){
+        switch (choice) {
             case 1:
-                trucks[truck-1].changeDriver(drivers);
+                trucks[truck - 1].changeDriver(drivers);
                 break;
-                case 2:
-                    trucks[truck-1].startDriving();
-                    break;
-                    case 3:
-                        trucks[truck-1].startRepairing();
-                        break;
+            case 2:
+                trucks[truck - 1].startDriving();
+                break;
+            case 3:
+                trucks[truck - 1].startRepairing();
+                break;
             case 4:
                 System.out.println("Goodbye!");
         }
         return choice;
     }
 
-    private static int getNum(int min, int max, String sense){
+    private static int getNum(int min, int max, String sense) {
         try {
             System.out.println(sense);
             int num = sc.nextInt();
-            if(num < min || num > max){
+            if (num < min || num > max) {
                 throw new InputMismatchException();
             }
             return num;

@@ -51,6 +51,4 @@ public class Driver {
     private int turnIntoInt(String id){
         return Integer.parseInt(id.replace("drv-", ""));
     }
-
-
 }

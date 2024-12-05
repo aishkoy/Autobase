@@ -86,7 +86,7 @@ public class Truck {
                 ╚════════════════════════════╝""", id, name, driver, state);
     }
 
-    public void startDriving() throws StateException, DriverException {
+    public void startDriving(){
         try {
             if (driverObj == null) {
                 throw new DriverException("Driver not set. Please set driver first");
@@ -96,7 +96,6 @@ public class Truck {
         } catch (StateException | DriverException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     public void startRepairing() {

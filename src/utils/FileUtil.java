@@ -13,7 +13,7 @@ import java.nio.file.Path;
 public class FileUtil {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    private FileUtil() {};
+    private FileUtil() {}
 
     public static Truck[] readFile(){
         Truck[] trucks = new Truck[3];
