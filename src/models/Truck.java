@@ -28,7 +28,7 @@ public class Truck {
     public void initializeState() {
         switch (state.toLowerCase()) {
             case "base":
-                this.stateObj =  new OnBase();
+                this.stateObj = new OnBase();
                 break;
             case "repair":
                 this.stateObj = new OnRepair();
@@ -40,17 +40,26 @@ public class Truck {
     }
 
 
-
     public void getInfoMessage() {
-        System.out.println("  #  | Bus             | Driver     | State  \n" +
-                "-----|-----------------|------------|------------");
+        System.out.println("""
+                                INFO ABOUT TRUCKS
+                  #  ║ Bus             ║ Driver     ║ State
+                ═════╬═════════════════╬════════════╬════════════""");
     }
-
-
 
     @Override
     public String toString() {
-        return String.format("%3s  | %-15s | %-10s | %-10s | %-10s", id, name, driver, state, stateObj);
+        return String.format("%3s  ║ %-15s ║ %-10s ║ %-10s ", id, name, driver, state);
+    }
+
+    public void printInfo() {
+        System.out.printf("""
+                ╔════════════════════════════╗
+                ║ #         : %-14s ║
+                ║ Bus       : %-14s ║
+                ║ Driver    : %-14s ║
+                ║ Bus State : On %-11s ║
+                ╚════════════════════════════╝""", id, name, driver, state);
     }
 
     public String getName() {
@@ -74,23 +83,28 @@ public class Truck {
         this.stateObj = stateObj;
     }
 
-    public State getStateObj(){
+    public State getStateObj() {
         return this.stateObj;
     }
 
     public void startDriving() throws StateException, DriverException {
-        if (driverObj == null) {
-            throw new DriverException("Driver not set. Please set driver first");
+        try {
+            if (driverObj == null) {
+                throw new DriverException("Driver not set. Please set driver first");
+            }
+            stateObj.startDriving(this);
+            System.out.println("Truck " + this.getName() + " is on the route");
+        } catch (StateException | DriverException e) {
+            System.out.println(e.getMessage());
         }
-        stateObj.startDriving(this);
-        System.out.println("Truck " + this.getName() + " is on the route");
+
     }
 
     public void startRepairing() {
         try {
             stateObj.startRepair(this);
             System.out.println("Truck " + this.getName() + " is on repair");
-        } catch (StateException e) {
+        } catch (StateException | DriverException e) {
             System.out.println(e.getMessage());
         }
     }

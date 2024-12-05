@@ -20,9 +20,13 @@ public class OnBase implements State {
     }
 
     @Override
-    public void startRepair(Truck truck) {
-        truck.setStateObj(new OnRepair());
-        truck.setState("repair");
+    public void startRepair(Truck truck) throws DriverException {
+        if(truck.getDriverObj() != null){
+            truck.setStateObj(new OnRepair());
+            truck.setState("repair");
+        } else{
+            throw new DriverException("Truck has not a driver. Please, choose a driver for this truck!!");
+        }
     }
 
     @Override

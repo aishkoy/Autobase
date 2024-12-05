@@ -7,6 +7,6 @@ import models.Truck;
 
 public interface State {
     void startDriving(Truck truck) throws StateException, DriverException;
-    void startRepair(Truck truck) throws StateException;
+    void startRepair(Truck truck) throws StateException, DriverException;
     void changeDriver(Truck truck, Driver driver) throws StateException, DriverException;
 }

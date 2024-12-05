@@ -28,14 +28,17 @@ public class Driver {
     }
 
     public void getInfoMessage(){
-        System.out.println("  #  | Driver       | Bus            \n" +
-                           "-----|--------------|---------------");
+        System.out.println("""
+                
+                           INFO ABOUT DRIVERS
+                  #  ║ Driver       ║ Bus
+                ═════╬══════════════╬═════════════════""");
     }
 
     @Override
     public String toString() {
         String truckName = truck == null ? "" : truck.getName();
-        return String.format("%3s  | %-12s | %-15s | %-10s", turnIntoInt(id), name, truckName, state);
+        return String.format("%3s  ║ %-12s ║ %-15s ", turnIntoInt(id), name, truckName);
     }
 
     private int turnIntoInt(String id){
