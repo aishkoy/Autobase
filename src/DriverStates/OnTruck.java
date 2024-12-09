@@ -7,7 +7,7 @@ public class OnTruck implements DriverState {
 
     @Override
     public void startDriving(Driver driver) throws StateException {
-        throw new StateException("Driver is already on the truck");
+        throw new StateException("Driver is already on the truck\n");
     }
 
     @Override

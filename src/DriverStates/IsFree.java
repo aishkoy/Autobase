@@ -11,6 +11,6 @@ public class IsFree implements DriverState {
 
     @Override
     public void stopDriving(Driver driver) throws StateException {
-        throw new StateException("Driver is not on a truck");
+        throw new StateException("Driver is not on a truck\n");
     }
 }

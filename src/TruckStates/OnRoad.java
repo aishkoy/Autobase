@@ -7,7 +7,7 @@ import models.Truck;
 public class OnRoad implements State {
     @Override
     public void startDriving(Truck truck) throws StateException {
-        throw new StateException("Truck is already on the road");
+        throw new StateException("Truck is already on the road\n");
     }
 
     @Override
@@ -18,6 +18,6 @@ public class OnRoad implements State {
 
     @Override
     public void changeDriver(Truck truck, Driver driver) throws StateException {
-        throw new StateException("Cannot change driver while truck is on the road");
+        throw new StateException("Cannot change driver while truck is on the road\n");
     }
 }

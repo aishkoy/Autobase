@@ -89,10 +89,10 @@ public class Truck {
     public void startDriving(){
         try {
             if (driverObj == null) {
-                throw new DriverException("Driver not set. Please set driver first");
+                throw new DriverException("Driver not set. Please set driver first\n");
             }
             stateObj.startDriving(this);
-            System.out.println("Truck " + this.getName() + " is on the route");
+            System.out.println("Truck " + this.getName() + " is on the route\n");
         } catch (StateException | DriverException e) {
             System.out.println(e.getMessage());
         }
@@ -101,7 +101,7 @@ public class Truck {
     public void startRepairing() {
         try {
             stateObj.startRepair(this);
-            System.out.println("Truck " + this.getName() + " is on repair");
+            System.out.println("Truck " + this.getName() + " is on repair\n");
         } catch (StateException | DriverException e) {
             System.out.println(e.getMessage());
         }

@@ -1,5 +1,3 @@
-import exceptions.DriverException;
-import exceptions.StateException;
 import models.Driver;
 import models.Truck;
 import utils.FileUtil;
@@ -12,12 +10,11 @@ public class Main {
     private static final Truck[] trucks = FileUtil.readFile();
     private static final Driver[] drivers = FileUtil.readFileDrivers();
 
-    public static void main(String[] args) throws DriverException, StateException {
-        printInfo(trucks);
-        printInfo(drivers);
-
+    public static void main(String[] args){
         int choice;
         do {
+            printInfo(trucks);
+            printInfo(drivers);
             int num = getNum(1, 3, "\nEnter number of Truck: ");
             trucks[num - 1].printInfo();
             choice = changeTruck(num);
@@ -27,14 +24,16 @@ public class Main {
         printInfo(drivers);
     }
 
-    private static int changeTruck(int truck) throws DriverException, StateException {
+    private static int changeTruck(int truck){
         System.out.print("""
                 
                 How do you want to change Truck's state?
                 1. Change the driver
                 2. Send to route
                 3. Send on repair
-                4. exit""");
+                4. exit
+                
+                Enter the number of action:""");
         int choice = getNum(1, 4, "");
 
         switch (choice) {
@@ -53,9 +52,9 @@ public class Main {
         return choice;
     }
 
-    private static int getNum(int min, int max, String sense) {
+    private static int getNum(int min, int max, String sentence) {
         try {
-            System.out.println(sense);
+            System.out.print(sentence);
             int num = sc.nextInt();
             if (num < min || num > max) {
                 throw new InputMismatchException();
@@ -64,7 +63,7 @@ public class Main {
         } catch (InputMismatchException e) {
             System.out.println("Incorrect input");
             sc.nextLine();
-            return getNum(min, max, sense);
+            return getNum(min, max, sentence);
         }
     }
 

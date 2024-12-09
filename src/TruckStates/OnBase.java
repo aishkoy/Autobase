@@ -15,7 +15,7 @@ public class OnBase implements State {
             truck.setStateObj(new OnRoad());
             truck.setState("route");
         } else{
-            throw new DriverException("Truck has not a driver. Please, choose a driver for this truck!!");
+            throw new DriverException("Truck has not a driver. Please, choose a driver for this truck!!\n");
         }
     }
 
@@ -25,14 +25,14 @@ public class OnBase implements State {
             truck.setStateObj(new OnRepair());
             truck.setState("repair");
         } else{
-            throw new DriverException("Truck has not a driver. Please, choose a driver for this truck!!");
+            throw new DriverException("Truck has not a driver. Please, choose a driver for this truck!!\n");
         }
     }
 
     @Override
     public void changeDriver(Truck truck, Driver driver) throws DriverException {
         if(driver == null){
-            throw new DriverException("There are not free drivers!");
+            throw new DriverException("There are not free drivers!\n");
         }
 
         if (truck.getDriverObj() != null) {
@@ -44,7 +44,7 @@ public class OnBase implements State {
         driver.setState(new OnTruck());
         driver.setTruck(truck);
         truck.setDriver(driver);
-        System.out.println("Now driver " + driver.getName() + " is on the truck " + truck.getName());
+        System.out.println("Now driver " + driver.getName() + " is on the truck " + truck.getName() +"\n");
 
     }
 }
